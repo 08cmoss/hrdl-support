@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,366 +11,462 @@
             box-sizing: border-box;
         }
 
-```
-    :root {
-        --bg-primary: #121212;
-        --bg-elevated: #181818;
-        --bg-highlight: #282828;
-        --text-primary: #FFFFFF;
-        --text-secondary: #B3B3B3;
-        --text-subdued: #7C7C7C;
-        --accent: #1DB954;
-        --accent-hover: #1ED760;
-        --border: #282828;
-        --error: #E22134;
-    }
-
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        background: var(--bg-primary);
-        color: var(--text-primary);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        background-image: 
-            radial-gradient(circle at 20% 50%, rgba(29, 185, 84, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(29, 185, 84, 0.05) 0%, transparent 50%);
-    }
-
-    .container {
-        width: 100%;
-        max-width: 480px;
-    }
-
-    .logo {
-        text-align: center;
-        margin-bottom: 48px;
-    }
-
-    .logo h1 {
-        font-size: 48px;
-        font-weight: 900;
-        letter-spacing: -2px;
-        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .form-card {
-        background: var(--bg-elevated);
-        border-radius: 8px;
-        padding: 32px;
-        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .form-header {
-        margin-bottom: 32px;
-        text-align: center;
-    }
-
-    .form-header h2 {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-
-    .form-header p {
-        color: var(--text-secondary);
-        font-size: 14px;
-    }
-
-    .form-group {
-        margin-bottom: 24px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--text-primary);
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.1px;
-    }
-
-    input, textarea, select {
-        width: 100%;
-        padding: 12px 14px;
-        background: var(--bg-primary);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        color: var(--text-primary);
-        font-size: 14px;
-        font-family: inherit;
-        transition: all 0.2s;
-    }
-
-    input:hover, textarea:hover, select:hover {
-        border-color: var(--text-subdued);
-    }
-
-    input:focus, textarea:focus, select:focus {
-        outline: none;
-        border-color: var(--accent);
-        background: var(--bg-primary);
-    }
-
-    input::placeholder, textarea::placeholder {
-        color: var(--text-subdued);
-    }
-
-    select {
-        cursor: pointer;
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23B3B3B3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 14px center;
-        padding-right: 40px;
-    }
-
-    select option {
-        background: var(--bg-elevated);
-        color: var(--text-primary);
-    }
-
-    textarea {
-        resize: vertical;
-        min-height: 120px;
-        line-height: 1.5;
-    }
-
-    .submit-btn {
-        width: 100%;
-        padding: 14px 32px;
-        background: var(--accent);
-        color: var(--bg-primary);
-        border: none;
-        border-radius: 500px;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.2s;
-        margin-top: 8px;
-    }
-
-    .submit-btn:hover {
-        background: var(--accent-hover);
-        transform: scale(1.02);
-    }
-
-    .submit-btn:active {
-        transform: scale(0.98);
-    }
-
-    .submit-btn.loading {
-        opacity: 0.7;
-        cursor: not-allowed;
-    }
-
-    .success-message {
-        margin-top: 24px;
-        padding: 16px;
-        background: rgba(29, 185, 84, 0.1);
-        border: 1px solid var(--accent);
-        border-radius: 4px;
-        text-align: center;
-        font-size: 14px;
-        color: var(--accent);
-        display: none;
-        animation: slideIn 0.3s ease;
-    }
-
-    .success-message.show {
-        display: block;
-    }
-
-    .error-message {
-        color: var(--error);
-        font-size: 12px;
-        margin-top: 6px;
-        display: none;
-    }
-
-    .error-message.show {
-        display: block;
-    }
-
-    .footer {
-        margin-top: 32px;
-        text-align: center;
-        color: var(--text-subdued);
-        font-size: 12px;
-    }
-
-    .footer a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    .footer a:hover {
-        color: var(--text-primary);
-        text-decoration: underline;
-    }
-
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
+        :root {
+            --bg-primary: #121212;
+            --bg-elevated: #181818;
+            --bg-highlight: #282828;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B3B3B3;
+            --text-subdued: #7C7C7C;
+            --accent: #1DB954;
+            --accent-hover: #1ED760;
+            --border: #282828;
+            --error: #E22134;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 
-    @media (max-width: 520px) {
-        .form-card {
-            padding: 24px 20px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
         }
 
         .logo h1 {
-            font-size: 40px;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
         }
 
-        .form-header h2 {
-            font-size: 20px;
+        .header p {
+            color: var(--text-secondary);
+            font-size: 18px;
         }
-    }
 
-    /* Loading spinner */
-    .spinner {
-        display: inline-block;
-        width: 14px;
-        height: 14px;
-        border: 2px solid var(--bg-primary);
-        border-radius: 50%;
-        border-top-color: transparent;
-        animation: spin 0.8s linear infinite;
-        margin-left: 8px;
-        vertical-align: middle;
-    }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
 
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-</style>
-```
+        .support-form {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+        }
 
+        .support-form h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .support-form .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        input:hover, textarea:hover, select:hover {
+            border-color: var(--text-subdued);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--bg-primary);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-subdued);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23B3B3B3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 500px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .submit-btn.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            margin-top: 24px;
+            padding: 16px;
+            background: rgba(29, 185, 84, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--accent);
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .privacy-policy {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .privacy-policy h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .privacy-policy h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--accent);
+        }
+
+        .privacy-policy p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .privacy-policy ul {
+            margin: 16px 0 16px 24px;
+            color: var(--text-secondary);
+        }
+
+        .privacy-policy li {
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-subdued);
+            font-size: 12px;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--bg-primary);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .support-form, .privacy-policy {
+                padding: 24px 20px;
+            }
+
+            .logo h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <h1>hrdl</h1>
+        <div class="header">
+            <div class="logo">
+                <h1>hrdl</h1>
+            </div>
+            <p>Guess the song from short clips</p>
         </div>
 
-```
-    <div class="form-card">
-        <div class="form-header">
-            <h2>Get Support</h2>
-            <p>We'll get back to you within 24 hours</p>
+        <div class="main-content">
+            <!-- Support Form -->
+            <div class="support-form">
+                <h2>Get Support</h2>
+                <p class="subtitle">We'll get back to you within 24 hours</p>
+
+                <form id="supportForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+                    <input type="hidden" name="_next" value="https://your-username.github.io/hrdl-support/thank-you.html">
+                    <input type="hidden" name="_subject" value="hrdl App Support Request">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <div class="error-message" id="nameError">Name is required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueType">Issue Type</label>
+                        <select id="issueType" name="issue_type" required>
+                            <option value="">Select an issue type</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="account">Account Issue</option>
+                            <option value="audio">Audio Problems</option>
+                            <option value="gameplay">Gameplay Issue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Describe your issue</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Please provide as much detail as possible..."
+                            required
+                        ></textarea>
+                        <div class="error-message" id="messageError">Message must be at least 10 characters</div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Send Message
+                    </button>
+
+                    <div class="success-message" id="successMessage">
+                        ✓ Message sent successfully! We'll be in touch soon.
+                    </div>
+                </form>
+            </div>
+
+            <!-- Privacy Policy -->
+            <div class="privacy-policy">
+                <h2>Privacy Policy</h2>
+                
+                <p><strong>Last updated:</strong> December 2024</p>
+
+                <h3>Information We Collect</h3>
+                <p>hrdl is designed to protect your privacy. We collect minimal information:</p>
+                <ul>
+                    <li><strong>Game Statistics:</strong> Your game scores, attempts, and progress are stored locally on your device</li>
+                    <li><strong>Music Data:</strong> We access iTunes and Deezer APIs to provide song previews</li>
+                    <li><strong>Support Requests:</strong> When you contact us, we collect your email and message content</li>
+                </ul>
+
+                <h3>How We Use Information</h3>
+                <ul>
+                    <li>Game statistics are used solely to track your personal progress</li>
+                    <li>Music API data is used to provide gameplay functionality</li>
+                    <li>Support messages are used to respond to your inquiries</li>
+                </ul>
+
+                <h3>Information Sharing</h3>
+                <p>We do not sell, trade, or share your personal information with third parties. Your data stays with you.</p>
+
+                <h3>Data Storage</h3>
+                <ul>
+                    <li>Game data is stored locally on your device using iOS UserDefaults</li>
+                    <li>No personal data is transmitted to our servers</li>
+                    <li>Music previews are streamed directly from iTunes/Deezer</li>
+                </ul>
+
+                <h3>Third-Party Services</h3>
+                <p>hrdl uses these external services:</p>
+                <ul>
+                    <li><strong>iTunes Search API:</strong> Apple's public API for music metadata</li>
+                    <li><strong>Deezer API:</strong> Deezer's public API as fallback for music data</li>
+                </ul>
+
+                <h3>Data Deletion</h3>
+                <p>You can delete all game data by uninstalling the app. No data persists on our servers.</p>
+
+                <h3>Children's Privacy</h3>
+                <p>hrdl does not knowingly collect personal information from children under 13.</p>
+
+                <h3>Contact Us</h3>
+                <p>Questions about this privacy policy? Contact us using the form on this page.</p>
+
+                <h3>Changes to This Policy</h3>
+                <p>We may update this privacy policy from time to time. Changes will be posted on this page.</p>
+            </div>
         </div>
-```
 
-```
-            </div>
-
-            <div class="form-group">
-                <label for="message">Describe your issue</label>
-                <textarea 
-                    id="message" 
-                    name="message" 
-                    placeholder="Please provide as much detail as possible..."
-                    required
-                ></textarea>
-                <div class="error-message" id="messageError">Message must be at least 10 characters</div>
-            </div>
-
-            <button type="submit" class="submit-btn" id="submitBtn">
-                Send Message
-            </button>
-
-            <div class="success-message" id="successMessage">
-                ✓ Message sent successfully! We'll be in touch soon.
-            </div>
-        </form>
+        <div class="footer">
+            <p>© 2024 hrdl · Privacy Policy Above · <a href="mailto:08cmoss@gmail.com">Contact</a></p>
+        </div>
     </div>
 
-    <div class="footer">
-        <p>© 2024 hrdl · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </div>
-</div>
+    <script>
+        const form = document.getElementById('supportForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
 
-<script>
-    const form = document.getElementById('supportForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const successMessage = document.getElementById('successMessage');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const emailError = document.getElementById('emailError');
-    const messageError = document.getElementById('messageError');
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
 
-    // Email validation
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
+        // Form validation
+        emailInput.addEventListener('blur', function() {
+            if (!validateEmail(this.value)) {
+                emailError.classList.add('show');
+            } else {
+                emailError.classList.remove('show');
+            }
+        });
 
-    // Form validation
-    emailInput.addEventListener('blur', function() {
-        if (!validateEmail(this.value)) {
-            emailError.classList.add('show');
-        } else {
+        messageInput.addEventListener('blur', function() {
+            if (this.value.length < 10) {
+                messageError.classList.add('show');
+            } else {
+                messageError.classList.remove('show');
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            // Validate before submission
+            if (!validateEmail(emailInput.value)) {
+                e.preventDefault();
+                emailError.classList.add('show');
+                return;
+            }
+
+            if (messageInput.value.length < 10) {
+                e.preventDefault();
+                messageError.classList.add('show');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.innerHTML = 'Sending<span class="spinner"></span>';
+            submitBtn.disabled = true;
+        });
+
+        // Remove error messages on input
+        emailInput.addEventListener('input', function() {
             emailError.classList.remove('show');
-        }
-    });
+        });
 
-    messageInput.addEventListener('blur', function() {
-        if (this.value.length < 10) {
-            messageError.classList.add('show');
-        } else {
+        messageInput.addEventListener('input', function() {
             messageError.classList.remove('show');
-        }
-    });
-
-    // Form submission
-    form.addEventListener('submit', function(e) {
-        // Don't prevent default - let form submit naturally to Formsubmit.co
-        
-        // Validate
-        if (!validateEmail(emailInput.value)) {
-            e.preventDefault();
-            emailError.classList.add('show');
-            return;
-        }
-
-        if (messageInput.value.length < 10) {
-            e.preventDefault();
-            messageError.classList.add('show');
-            return;
-        }
-
-        // Show loading state
-        submitBtn.classList.add('loading');
-        submitBtn.innerHTML = 'Sending<span class="spinner"></span>';
-        submitBtn.disabled = true;
-    });
-
-    // Remove error messages on input
-    emailInput.addEventListener('input', function() {
-        emailError.classList.remove('show');
-    });
-
-    messageInput.addEventListener('input', function() {
-        messageError.classList.remove('show');
-    });
-</script>
-```
-
+        });
+    </script>
 </body>
 </html>
